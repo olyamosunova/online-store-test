@@ -1,20 +1,25 @@
 import {Route, Router, Switch} from "react-router";
 import { createBrowserHistory } from "history";
-import Main from "../Main/Main";
+import Products from "../Products/Products";
+import {useDispatch} from "react-redux";
+import {getProducts, getCategories} from "../../actions";
 
 const history = createBrowserHistory();
 
-function App() {
+const App = () => {
+    const dispatch = useDispatch();
+    dispatch(getProducts());
+    dispatch(getCategories());
 
   return (
       <Router history={history}>
           <Switch>
               <Route exact path="/">
-                  <Main />
+                  <Products />
               </Route>
           </Switch>
       </Router>
   );
-}
+};
 
 export default App;
