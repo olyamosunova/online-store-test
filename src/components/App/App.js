@@ -1,11 +1,19 @@
-import './App.css';
-import {Container} from "react-bootstrap";
+import {Route, Router, Switch} from "react-router";
+import { createBrowserHistory } from "history";
+import Main from "../Main/Main";
+
+const history = createBrowserHistory();
 
 function App() {
+
   return (
-    <Container>
-      Hello
-    </Container>
+      <Router history={history}>
+          <Switch>
+              <Route exact path="/">
+                  <Main />
+              </Route>
+          </Switch>
+      </Router>
   );
 }
 
